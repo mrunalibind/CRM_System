@@ -3,8 +3,7 @@ import { pool } from "../config/db.js";
 import jwt from "jsonwebtoken";
 import { registerSchema, loginSchema } from "../models/auth.model.js";
 
-export async function register ( req, res ){
-  // 1. Validate incoming data
+export async function register(req, res) {
   const validation = registerSchema.safeParse(req.body);
 
   if (!validation.success) {
@@ -22,10 +21,8 @@ export async function register ( req, res ){
   const { name, email, password } = validation.data;
 
   try {
-    // 2. Hash the password. Never store plain-text passwords.
     const passwordHash = await bcrypt.hash(password, 10);
 
-    // 3. Insert the employee into PostgreSQL.
     const result = await pool.query(
       `INSERT INTO employees (name, email, password_hash)
        VALUES ($1, $2, $3)
@@ -33,14 +30,12 @@ export async function register ( req, res ){
       [name, email, passwordHash]
     );
 
-    // 4. Return the created employee, not the password hash.
     res.status(201).json({
       success: true,
       message: "Employee registered successfully",
       data: result.rows[0],
     });
   } catch (error) {
-    // PostgreSQL unique-constraint violation
     if (
       typeof error === "object" &&
       error !== null &&
@@ -63,8 +58,7 @@ export async function register ( req, res ){
   }
 }
 
-
-export async function login ( req, res ) {
+export async function login(req, res) {
   const validation = loginSchema.safeParse(req.body);
 
   if (!validation.success) {
@@ -91,7 +85,6 @@ export async function login ( req, res ) {
 
     const employee = result.rows[0];
 
-    // Use the same response for unknown emails and wrong passwords.
     if (!employee) {
       res.status(401).json({
         success: false,

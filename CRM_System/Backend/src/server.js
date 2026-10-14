@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 import { pool } from "./config/db.js";
 import authRouter from "./routes/auth.route.js";
+import enquiryRouter from "./routes/enquiry.route.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRouter);
+app.use("/api/enquiries", enquiryRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
