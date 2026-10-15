@@ -1,0 +1,142 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  color: #172033;
+  background: #f3f6fb;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #edf3ff, #f8faff);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #e3e9f3;
+  border-radius: 16px;
+  box-shadow: 0 16px 45px rgba(30, 55, 90, 0.08);
+}
+
+.eyebrow {
+  color: #365fd6;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.auth-card h1 {
+  margin: 12px 0 8px;
+  font-size: 28px;
+}
+
+.muted {
+  margin: 0 0 24px;
+  color: #68748a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.auth-card label {
+  display: block;
+  margin: 16px 0 7px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #d6deeb;
+  border-radius: 8px;
+  outline: none;
+}
+
+.auth-card input:focus {
+  border-color: #4169e1;
+  box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.12);
+}
+
+.auth-card button,
+.placeholder-page button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #365fd6;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-card button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.form-footer {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #68748a;
+}
+
+a {
+  color: #365fd6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.alert {
+  padding: 11px 12px;
+  margin: 16px 0;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.error {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.success {
+  background: #eaf8ef;
+  color: #18713a;
+}
+
+.placeholder-page {
+  width: min(600px, calc(100% - 32px));
+  margin: 80px auto;
+  padding: 28px;
+  background: white;
+  border: 1px solid #e3e9f3;
+  border-radius: 14px;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 24px 20px;
+  }
+}

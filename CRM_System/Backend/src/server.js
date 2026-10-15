@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRouter);
 app.use("/api/enquiries", enquiryRouter);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, async() => {
     pool.connect()
     .then(() => {
