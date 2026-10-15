@@ -3,6 +3,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import './index.css';
+import EnquiryForm from './pages/EnquiryForm';
+import Dashboard from './pages/Dashboard';
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('crm_token');
@@ -47,11 +49,11 @@ export default function App() {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <DashboardPlaceholder />
+              <Dashboard />
             </ProtectedRoute>
           }
         />
-        <Route path="/enquiry" element={<EnquiryPlaceholder />} />
+        <Route path="/enquiry" element={<EnquiryForm />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
